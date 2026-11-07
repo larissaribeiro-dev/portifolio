@@ -2,7 +2,7 @@
 
 Portfólio pessoal de **Larissa Ribeiro**, estudante de Engenharia da Computação na UFAM (Manaus, AM), em busca de estágio em TI.
 
-🔗 **Site:** https://larissaribeiro-dev.github.io
+🔗 **Site:** https://larissaribeiro-dev.github.io/portifolio/
 
 ## O que tem no site
 
