@@ -41,16 +41,6 @@ python -m http.server 8000
 
 e acessar http://localhost:8000.
 
-## Adicionar um projeto novo
-
-Os projetos ficam no array `P` do `script.js`. Cada projeto é uma linha neste formato:
-
-```js
-['nome-do-repositorio', ['Tag1', 'Tag2'], { pt: 'Descrição em português.', en: 'Description in English.' }],
-```
-
-O nome precisa ser igual ao do repositório no GitHub, pois o botão "Ver no GitHub" usa esse nome para montar o link. Para usar uma imagem no card, salve-a em `assets/projetos/nome-do-repositorio.jpg`.
-
 ## Publicação
 
 O site é publicado com o **GitHub Pages**, direto da branch `main`. A cada `git push`, ele é atualizado automaticamente em alguns minutos.
