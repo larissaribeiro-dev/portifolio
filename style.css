@@ -228,6 +228,6 @@ body.ready .hero h1 .ln:nth-child(2) .in{animation-delay:.18s}
 
 /* v6: botões centralizados + textarea só vertical */
 .btn.c,.btn.a{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:0 30px}
-.btn.a{padding:0 58px}
+.btn.a{padding:0 76px 0 40px}
 .btn.a span{display:block;line-height:22px}
 .fg textarea{resize:vertical;min-height:140px;max-width:100%;display:block}
