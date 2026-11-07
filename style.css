@@ -82,7 +82,7 @@ h1{letter-spacing:-1px}p{font-size:16px;line-height:26px}}
 .btn.a span{display:inline-block;transition:.3s}
 .btn.a:before,.btn.a:after{content:'→';position:absolute;right:10px;top:50%;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#000;transform:translateY(-50%);transition:.3s}
 .btn.a:before{right:auto;left:10px;transform:translate(-150%,-50%)}
-.btn.a:hover:after{transform:translate(140%,-50%)}.btn.a:hover:before{transform:translate(0,-50%)}.btn.a:hover span{transform:translateX(30px)}
+@media(hover:hover){.btn.a:hover:after{transform:translate(140%,-50%)}.btn.a:hover:before{transform:translate(0,-50%)}.btn.a:hover span{transform:translateX(30px)}}
 .ac{border-bottom:1px solid var(--ln)}
 .ach{display:flex;justify-content:space-between;align-items:center;padding:30px 0;cursor:pointer}
 .ach b,.pj h6{font-weight:300;font-size:26px;background:linear-gradient(0deg,#777 -10%,#fff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -225,3 +225,9 @@ body.ready .hero h1 .ln:nth-child(2) .in{animation-delay:.18s}
 .hero{container-type:inline-size}
 .hero h1{font-size:clamp(42px,min(6vw,9.2cqi),90px)}
 .ach:focus-visible{outline:1px solid var(--p);outline-offset:6px;border-radius:8px}
+
+/* v6: botões centralizados + textarea só vertical */
+.btn.c,.btn.a{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:0 30px}
+.btn.a{padding:0 58px}
+.btn.a span{display:block;line-height:22px}
+.fg textarea{resize:vertical;min-height:140px;max-width:100%;display:block}
