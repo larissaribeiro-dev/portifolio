@@ -6,7 +6,7 @@ Portfólio pessoal de **Larissa Ribeiro**, estudante de Engenharia da Computaç�
 
 ## O que tem no site
 
-- Apresentação, formação e cursos, áreas de atuação, habilidades, projetos, competências e formulário de contato
+- Apresentação, formação e cursos, áreas de atuação, habilidades, projetos, competências e contato por e-mail
 - **Dois idiomas** (português e inglês), com troca em um clique
 - **Projetos com miniaturas animadas** que mostram o que cada um faz: terminal, grafo de tarefas, diagrama do processador, relógio de 7 segmentos, monitor ESP32, osciloscópio de hazards, emulador e API
 - Layout responsivo para celular, tablet e computador
@@ -28,6 +28,7 @@ portifolio/
 ├── curriculo.pdf   # currículo para download
 └── assets/
     ├── foto.jpg    # foto do perfil
+    ├── og-image.jpg # prévia ao compartilhar o link (LinkedIn, WhatsApp)
     └── icons/      # ícones das tecnologias
 ```
 
