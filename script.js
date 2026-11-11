@@ -10,7 +10,7 @@ lead:'Sou Larissa, estudante de Engenharia da Computação na UFAM, em Manaus. B
 b_proj:'Ver projetos',b_cv:'Baixar CV',
 about1:'Estou no 6º período de Engenharia da Computação na UFAM. Gosto de entender como as coisas funcionam por dentro: de um parser escrito do zero a um processador de 8 bits rodando em FPGA.',
 about2:'Trabalho com C, C++, Python, HTML, CSS, JavaScript e SQL, e mantenho meus projetos e estudos no GitHub. Busco aprender com profissionais experientes, participar de projetos reais e contribuir para a evolução das soluções da empresa.',
-contact:'Aberta a oportunidades de estágio, networking e troca de ideias. Me escreva!',gh:'Ver no GitHub ↗',cd:'Contato',ad:'Endereço',addr:'Manaus, Amazonas, Brasil',send:'Enviar e-mail',msub:'Contato pelo portfólio',
+contact:'Aberta a oportunidades de estágio, networking e troca de ideias. Me escreva!',gh:'Ver no GitHub ↗',cd:'Contato',ad:'Endereço',addr:'Manaus, Amazonas, Brasil',f_name:'Nome',f_mail:'E-mail',f_subj:'Assunto (opcional)',f_msg:'Mensagem',p_name:'Seu nome',p_mail:'Seu e-mail',p_subj:'Sobre o que quer falar?',p_msg:'Escreva sua mensagem',send:'Enviar mensagem',sent:'Mensagem enviada! Obrigada.',err:'Não foi possível enviar. Tente pelo e-mail.',mail:'Abrindo seu aplicativo de e-mail…',
 c_lang:'Linguagem',c_web:'Web',c_db:'Banco de dados',c_tool:'Ferramenta',c_hdl:'Hardware (HDL)',c_sim:'Simulação',c_fpga:'FPGA',
 h:{hero:['Além da interface,','perto da máquina'],about:['Minha jornada e','objetivos'],edu:['Formação e','cursos'],serv:['Soluções do software','ao hardware'],skills:['Minhas','ferramentas'],proj:['Projetos onde a teoria','vira prática'],comp:['Minhas','competências'],contact:['Alguma dúvida?','Estou aqui para ouvir.']}},
 en:{n_home:'Home',n_about:'About',n_edu:'Education',n_serv:'What I do',n_skills:'Skills',n_proj:'Projects',n_contact:'Contact',
@@ -20,7 +20,7 @@ lead:"I'm Larissa, a Computer Engineering student at UFAM in Manaus, Brazil. I'm
 b_proj:'View projects',b_cv:'Download CV',
 about1:"I'm in my 6th semester of Computer Engineering at UFAM. I like understanding how things work inside: from a parser written from scratch to an 8-bit processor running on an FPGA.",
 about2:'I work with C, C++, Python, HTML, CSS, JavaScript and SQL, and keep my projects and studies on GitHub. I want to learn from experienced professionals, take part in real projects and help improve the company\'s solutions.',
-contact:'Open to internship opportunities, networking and exchanging ideas. Get in touch!',gh:'View on GitHub ↗',cd:'Contact details',ad:'Address',addr:'Manaus, Amazonas, Brazil',send:'Send email',msub:'Contact from your portfolio',
+contact:'Open to internship opportunities, networking and exchanging ideas. Get in touch!',gh:'View on GitHub ↗',cd:'Contact details',ad:'Address',addr:'Manaus, Amazonas, Brazil',f_name:'Name',f_mail:'Email',f_subj:'Subject (optional)',f_msg:'Message',p_name:'Your name',p_mail:'Your email',p_subj:'What would you like to talk about?',p_msg:'Write your message',send:'Send message',sent:'Message sent! Thank you.',err:'Could not send. Please use email instead.',mail:'Opening your email app…',
 c_lang:'Language',c_web:'Web',c_db:'Database',c_tool:'Tool',c_hdl:'Hardware (HDL)',c_sim:'Simulation',c_fpga:'FPGA',
 h:{hero:['Beyond the interface,','close to the machine'],about:['My journey &','goals'],edu:['Education &','courses'],serv:['Solutions from software','to hardware'],skills:['My','toolbox'],proj:['Projects where theory','meets practice'],comp:['My','strengths'],contact:['Any questions?',"I'm all ears."]}}};
 const EDU=[
@@ -54,7 +54,7 @@ function lang(l){
   const D=L[l];
   document.documentElement.lang=l==='pt'?'pt-BR':'en';document.title=l==='pt'?'Larissa Ribeiro · Engenharia da Computação':'Larissa Ribeiro · Computer Engineering';
   $$('[data-i]').forEach(e=>e.textContent=D[e.dataset.i]);
-  $('#mailbtn').href='mailto:larissa.rafaela.dev@gmail.com?subject='+encodeURIComponent(D.msub);
+  $$('[data-p]').forEach(e=>e.placeholder=D[e.dataset.p]);
   $$('[data-h]').forEach(e=>{const h=D.h[e.dataset.h];if(e.dataset.h==='hero'){e.innerHTML=`<span class="ln"><span class="w in">${h[0]}</span></span><span class="ln"><span class="g in">${h[1]}</span></span>`;return}e.innerHTML=`<span class="w">${h[0]}</span>${e.dataset.h==='contact'?'<br>':' '}<span class="g">${h[1]}</span>`});
   $('#bar').innerHTML=NAV.map(n=>`<a href="#${n[0]}">${ic(n[2])}<span>${D[n[1]]}</span></a>`).join('');
   $('#side ul').innerHTML='<li class="ttl">Menu</li>'+NAV.map(n=>`<li><a href="#${n[0]}">${ic(n[2])}<span>${D[n[1]]}</span></a></li>`).join('');
@@ -79,6 +79,11 @@ lang(cur);
 let n=0;const t=setInterval(()=>{n=Math.min(100,n+Math.ceil(Math.random()*6));
   $('#pct').textContent=String(n).padStart(2,'0');$('#arc').style.strokeDashoffset=1879*(1-n/100);
   if(n>=100){clearInterval(t);setTimeout(()=>{$('#pre').classList.add('out');document.body.classList.add('ready');setTimeout(()=>$('#pre').remove(),1100)},300)}},60);
+
+const FORM_ENDPOINT='https://formspree.io/f/moedqwor'; 
+$('#cf').onsubmit=async e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f)),m=$('#fm');
+  if(FORM_ENDPOINT){try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0;f.reset();m.textContent=L[cur].sent}catch(x){m.textContent=L[cur].err}return}
+  location.href='mailto:larissa.rafaela.dev@gmail.com?subject='+encodeURIComponent(d.subject||'Contato pelo portfólio · '+d.name)+'&body='+encodeURIComponent(d.message+'\n\n'+d.name+' · '+d.email);m.textContent=L[cur].mail};
 
 function tick(){const d=new Date(),a=d.getSeconds()%30<15,p=(a?[d.getHours(),d.getMinutes()]:[d.getMinutes(),d.getSeconds()]).map(n=>String(n).padStart(2,'0')).join('');
   const svg=`<svg viewBox="0 0 206 76">${[...p].map((c,i)=>dg(+c,[0,48,118,166][i])).join('')}</svg>`;

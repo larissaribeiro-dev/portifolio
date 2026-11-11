@@ -112,10 +112,13 @@
         <div><h6 data-i="cd"></h6><p>larissa.rafaela.dev@gmail.com<br>+55 92 99259-5701</p></div>
         <div><h6 data-i="ad"></h6><p data-i="addr"></p></div>
       </div>
-      <div class="cf cm rv">
-        <p data-i="contact"></p>
-        <a class="btn c" id="mailbtn" href="mailto:larissa.rafaela.dev@gmail.com" data-i="send"></a>
-      </div>
+      <form class="cf rv" id="cf">
+        <div class="fg"><label for="n" data-i="f_name"></label><input id="n" name="name" required data-p="p_name"></div>
+        <div class="fg"><label for="m" data-i="f_mail"></label><input id="m" name="email" type="email" required data-p="p_mail"></div>
+        <div class="fg"><label for="s" data-i="f_subj"></label><input id="s" name="subject" data-p="p_subj"></div>
+        <div class="fg"><label for="t" data-i="f_msg"></label><textarea id="t" name="message" rows="5" required data-p="p_msg"></textarea></div>
+        <div class="fa"><button class="btn c" type="submit" data-i="send"></button><span id="fm" class="xs"></span></div>
+      </form>
       <p class="xs foot">© 2026 Larissa Ribeiro</p>
     </section>
   </main>

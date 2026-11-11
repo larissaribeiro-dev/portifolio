@@ -252,9 +252,3 @@ body.ready .hero h1 .ln:nth-child(2) .in{animation-delay:.18s}
 .bg i:nth-child(5){left:-20vw;bottom:-40vh}
 }
 @media(prefers-reduced-motion:reduce){.bg i{animation:none}}
-
-/* v11: contato por e-mail (botão no lugar do formulário) */
-.btn{text-decoration:none}
-.cf.cm{align-items:flex-start;gap:28px}
-.cf.cm p{margin:0;max-width:560px;font-size:18px;line-height:32px}
-@media(max-width:991px){.cf.cm p{font-size:16px;line-height:26px}}
