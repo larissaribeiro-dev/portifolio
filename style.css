@@ -231,3 +231,25 @@ body.ready .hero h1 .ln:nth-child(2) .in{animation-delay:.18s}
 .btn.a{padding:0 76px 0 40px}
 .btn.a span{display:block;line-height:22px}
 .fg textarea{resize:vertical;min-height:140px;max-width:100%;display:block}
+
+/* v10: fundo aurora cobrindo a tela inteira */
+.bg{background:radial-gradient(130% 90% at 50% -10%,#0c0125 0%,#050010 55%,#020006 100%)}
+.bg i{display:block;position:absolute;inset:auto;border-radius:50%;filter:none;opacity:1;will-change:transform;animation:aur 26s ease-in-out infinite alternate}
+.bg i:nth-child(1){left:-18vw;top:-22vh;width:62vw;height:62vw;background:radial-gradient(circle,#9d00ff40 0%,#9d00ff14 40%,transparent 70%)}
+.bg i:nth-child(2){right:-18vw;top:-14vh;width:58vw;height:58vw;background:radial-gradient(circle,#3a2cff38 0%,#3a2cff12 42%,transparent 70%);animation-duration:32s;animation-delay:-6s}
+.bg i:nth-child(3){left:-14vw;top:38vh;width:52vw;height:52vw;background:radial-gradient(circle,#f718e020 0%,#f718e00b 42%,transparent 70%);animation-duration:30s;animation-delay:-12s}
+.bg i:nth-child(4){right:-16vw;bottom:-28vh;width:68vw;height:68vw;background:radial-gradient(circle,#c20ee03a 0%,#c20ee012 42%,transparent 70%);animation-duration:36s;animation-delay:-3s}
+.bg i:nth-child(5){left:22vw;bottom:-34vh;width:54vw;height:54vw;background:radial-gradient(circle,#4b2cd83a 0%,#4b2cd810 42%,transparent 70%);animation-duration:28s;animation-delay:-18s}
+@keyframes aur{0%{transform:translate(0,0) scale(1)}100%{transform:translate(7vw,5vh) scale(1.15)}}
+.bg::before,.bg::after{content:"";position:absolute;inset:0;pointer-events:none}
+.bg::before{z-index:1;background-image:radial-gradient(#ffffff2e 1px,transparent 1.4px);background-size:34px 34px;-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 60% 40%,#000 0%,transparent 75%);opacity:.4}
+.bg::after{z-index:2;background:radial-gradient(ellipse at 50% 50%,transparent 45%,#0000008c 100%)}
+@media(max-width:991px){
+.bg i:nth-child(n){width:120vw;height:120vw}
+.bg i:nth-child(1){left:-40vw;top:-15vh}
+.bg i:nth-child(2){right:-50vw;top:15vh}
+.bg i:nth-child(3){left:-50vw;top:55vh}
+.bg i:nth-child(4){right:-45vw;bottom:-20vh}
+.bg i:nth-child(5){left:-20vw;bottom:-40vh}
+.bg::before{background-size:28px 28px}}
+@media(prefers-reduced-motion:reduce){.bg i{animation:none}}
